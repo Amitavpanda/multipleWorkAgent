@@ -1,15 +1,14 @@
 # Brief
 route: direct
-employees: [intent]
-skip: [sprint, designer, engineering-manager, architect, backend-engineer, qa, release-engineer, debugger, security-officer, mobile-engineer, frontend-engineer]
-goal: Wave 0 scaffold DONE — Next.js 16 + TS + Tailwind + ESLint + typecheck.
-non_goals: Wave 1 bombs; Prisma; auth.
+employees: [backend-engineer]
+skip: [product-manager, designer, engineering-manager, sprint, frontend-engineer, qa]
+goal: GET /api/ping returns { ok: true, t: <ISO timestamp> }
+non_goals: home, notes, nav, DB, auth, new deps, other files
 success_checks:
-  - package.json name pingpad + typecheck script ✓
-  - app/ present ✓
-  - AGENTS.md / CLAUDE.md preserved ✓
-  - pnpm typecheck && pnpm lint GREEN ✓
-constraints: AGENTS.md Wave 0
+  - app/api/ping/route.ts exists
+  - GET returns JSON with ok:true and ISO t
+  - pnpm typecheck && pnpm lint green
+constraints: own only app/api/ping/route.ts; Wave 1 direct bomb
 verify: pnpm typecheck && pnpm lint
 max_loop_iters: 3
-notes: Scaffolded via scaffold-tmp merge (create-next-app refuses nonempty .). Ready for Wave 1 worktrees.
+notes: commit only route.ts if commit
